@@ -3,12 +3,13 @@ fun main() {
     var string = readln()
 //"AAADSSSRRTTHAAAA"
     var new_string = Array(size = 100) { "" }
-    var count = 0
+    var count = 1
     var t = 0
-    for (i in string.length)
+    for (i in 0..string.length)
     {
-    for (j in string.length+1){
-        if() {
+    for (j in i+1 until string.length){
+        if(string[i]==string[j]) {
+            count++
         }
     }
         /*
@@ -21,7 +22,7 @@ fun main() {
             */
         if(count!=0)
         {
-            new_string[t]="$i"
+            new_string[t]="${string[i]}"
             new_string[t+1]="$count"
             t+=2
             count=0
@@ -34,7 +35,11 @@ fun main() {
         {
             return
         }
-        println("${new_string[j]} - ${new_string[j+1]}")
+        if(new_string[j]==new_string[j+2]){
+            j+=2
+            continue
+        }
+        else println("${new_string[j]} - ${new_string[j+1]}")
         j+=2
     }
 }

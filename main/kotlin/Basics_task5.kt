@@ -6,11 +6,23 @@ import kotlin.math.round
  В противном случае вывести текст – «Целочисленный показатель не существует».
  */
 fun main() {
-    print("Введите целое число n:")
-    var n = readln().toDouble()
-    print("Введите основание x:")
-    var x = readln().toDouble()
-    var y: Double=log(n, x)
+    var n:Int=0
+    var x:Double=0.0
+    var check=true
+    println("Программма подсчитывает степень y для которого выполняется равенство x^y = n")
+    while (check) {
+        print("Введите целое число n:")
+        try {
+             n = readln().toInt()
+            print("Введите основание x:")
+             x = readln().toDouble()
+                check = false
+        }
+        catch (e:NumberFormatException){
+            println("Введите число")
+        }
+    }
+    var y: Double=log(n.toDouble(), x)
     if (round(y) == y) {
         println("y=${round(y).toInt()}")
     } else {
